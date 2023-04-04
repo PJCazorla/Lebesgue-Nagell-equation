@@ -1207,7 +1207,7 @@ function ruleOutThue(C1, C2, p, nPrimes, newform, f2, rhs2, f3, rhs3 : modular :
 		/* These are the values of x for which l | y. */
 		if solutionModL(l, C1, C2) then
 		
-			if (not modular) or ((Integers()!(Norm(cl))^2 mod p) eq 4) then
+			if (not modular) or ((Integers()!(Norm(cl^2-4)) mod p) eq 4) then
 				x := Modsqrt(-C2*InverseMod(C1, l), l);
 							
 				xValues := xValues cat [x];
@@ -1347,7 +1347,7 @@ function KrausMethod(p, f, tries, C1, C2)
 		/* If the newform is irrational, the procedure is slightly more complicated, but
 		   conceptually the same. */
 		else
-			if solutionModL(l, C1, C2) and ((Integers()!(Norm(frob^2)) mod p) eq 4) then
+			if solutionModL(l, C1, C2) and ((Integers()!(Norm(frob^2 - 4)) mod p) eq 0) then
 				found := false;
 			end if;
 		end if;
