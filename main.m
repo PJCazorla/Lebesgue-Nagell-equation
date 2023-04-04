@@ -1207,7 +1207,8 @@ function ruleOutThue(C1, C2, p, nPrimes, newform, f2, rhs2, f3, rhs3 : modular :
 		/* These are the values of x for which l | y. */
 		if solutionModL(l, C1, C2) then
 		
-			if (not modular) or ((Integers()!(Norm(cl^2-4)) mod p) eq 4) then
+			if (not modular) or ((Integers()!(Norm(cl^2-4)) mod p) eq 0) then
+			
 				x := Modsqrt(-C2*InverseMod(C1, l), l);
 							
 				xValues := xValues cat [x];
